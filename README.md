@@ -23,7 +23,7 @@ $ ./build_scripts/build_ch01.sh
 ```
 
 ### Running Example
-Once you've built the code for a specific chapter, you can execute the compiled examples from the `/build` directory. For instance, to run the `dlib_samples` example from Chapter01, navigate to the `/build` folder and launch the corresponding executable.
+Once you've built the code for a specific chapter, you can execute the compiled examples from the `/build` directory. For instance, to run the `dlib_samples` example from Chapter01, launch the corresponding executable.
 ```sh
 $ ./Chapter01/dlib_sample/build/linalg-dlib
 $ ./Chapter01/dlib_sample/build/linreg-dlib
