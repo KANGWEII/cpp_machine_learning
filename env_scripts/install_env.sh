@@ -27,5 +27,8 @@ fi
 # fast-cpp-csv-parser
 . ./checkout_lib.sh https://github.com/ben-strasser/fast-cpp-csv-parser 758f5665705a38da55322511d5b22fe2679918fe
 
+# mlpack
+. ./install_lib.sh https://github.com/mlpack/mlpack 4498706851a0f634da05d46d9ce6b2d5b8f1b7a9 -DBUILD_PYTHON_BINDINGS=OFF -DBUILD_TESTS=OFF
+
 # return back
 cd $DEV_DIR
