@@ -70,9 +70,9 @@ int main(int argc, char** argv) {
 
     // Non negative matrix factorization  with Alternating Least Squares
     // approach
-    // mlpack::cf::NMFPolicy decomposition_policy;
+    mlpack::cf::NMFPolicy decomposition_policy;
 
-    mlpack::cf::BatchSVDPolicy decomposition_policy;
+    // mlpack::cf::BatchSVDPolicy decomposition_policy;
 
     // stoping criterions
     size_t max_iterations = 20;
