@@ -61,7 +61,8 @@ jobs:
             done
       - name: Install required tools
         run: |
-            env_scripts/install_env.sh
+            cd env_scripts
+            ./install_env.sh
       - name: Build Examples
         run: |
             for script in build_scripts/build_ch*.sh; do
