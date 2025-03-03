@@ -30,6 +30,7 @@ jobs:
                 cmake-curses-gui \
                 gdb \
                 git \
+                g++ \
                 gnuplot \
                 libarmadillo-dev \
                 libblas-dev \
@@ -44,6 +45,9 @@ jobs:
                 libhdf5-dev \
                 libjson-c-dev \
                 libx11-dev \
+                libensmallen-dev \
+                libcereal-dev \
+                libstb-dev \
                 ninja-build \
                 openjdk-8-jdk \
                 python3 \
