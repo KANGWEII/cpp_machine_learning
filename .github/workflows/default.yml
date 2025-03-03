@@ -48,6 +48,7 @@ jobs:
                 libensmallen-dev \
                 libcereal-dev \
                 libstb-dev \
+                libgif-dev \
                 ninja-build \
                 openjdk-8-jdk \
                 python3 \
