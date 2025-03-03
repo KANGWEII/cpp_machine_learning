@@ -70,5 +70,6 @@ jobs:
             ./install_env.sh
       - name: Build Examples
         run: |
-            ./build_scripts/build_ch01.sh
+            cd build_scripts
+            ./build_ch01.sh
             ./build_scripts/build_ch02.sh
