@@ -70,11 +70,5 @@ jobs:
             ./install_env.sh
       - name: Build Examples
         run: |
-            for script in build_scripts/build_ch*.sh; do
-                if [ -f "$script" ]; then
-                    ./"$script" || echo "Script $script failed"
-                else
-                    echo "Script $script not found"
-                    exit 1
-                fi
-            done
+            ./build_scripts/build_ch01.sh
+            ./build_scripts/build_ch02.sh
