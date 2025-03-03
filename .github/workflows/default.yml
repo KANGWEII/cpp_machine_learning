@@ -14,8 +14,8 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        container: [ubuntu-latest]
-        runner: [arc-amd64-runner-set, arc-arm64-runner-set]
+        container: [amd64/ubuntu, arm64v8/ubuntu]
+        runner: [ubuntu-latest, ARM64]
     runs-on: ${{matrix.runner}}
     container:
       image: ${{matrix.container}}
