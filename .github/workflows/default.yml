@@ -16,9 +16,9 @@ jobs:
       matrix:
         container: [ubuntu-latest]
         runner: [amd64/ubuntu, arm64v8/ubuntu]
-    runs-on: ${{matrix.runner}}
+    runs-on: ${{matrix.container}}
     container:
-      image: ${{matrix.container}}
+      image: ${{matrix.runner}}
     defaults:
       run:
         shell: bash
