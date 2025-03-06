@@ -80,3 +80,4 @@ jobs:
             ./build_ch06.sh
             ./build_ch07.sh
             ./build_ch08.sh
+            ./build_ch10.sh
