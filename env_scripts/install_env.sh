@@ -30,5 +30,8 @@ fi
 # mlpack
 . ./install_lib.sh https://github.com/mlpack/mlpack 4498706851a0f634da05d46d9ce6b2d5b8f1b7a9 -DBUILD_PYTHON_BINDINGS=OFF -DBUILD_TESTS=OFF
 
+# PyTorch
+. ./install_lib.sh https://github.com/pytorch/pytorch 1eba9b3aa3c43f86f4a2c807ac8e12c4a7767340 -DBUILD_PYTHON=OFF -DONNX_NAMESPACE=onnx_torch
+
 # return back
 cd $DEV_DIR
