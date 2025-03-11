@@ -33,5 +33,8 @@ fi
 # PyTorch
 . ./install_lib.sh https://github.com/pytorch/pytorch 1eba9b3aa3c43f86f4a2c807ac8e12c4a7767340 -DBUILD_PYTHON=OFF -DONNX_NAMESPACE=onnx_torch
 
+# ONNX
+. ./install_lib.sh https://github.com/onnx/onnx.git b8baa8446686496da4cc8fda09f2b6fe65c2a02c -DONNX_NAMESPACE=onnx_torch
+
 # return back
 cd $DEV_DIR
