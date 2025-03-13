@@ -81,5 +81,4 @@ jobs:
             ./build_ch07.sh
             ./build_ch08.sh
             ./build_ch10.sh
-            ./build_ch11.sh
             ./build_ch12.sh
