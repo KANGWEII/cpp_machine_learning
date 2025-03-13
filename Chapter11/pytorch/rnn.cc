@@ -26,9 +26,9 @@ std::vector<torch::Tensor> PackedLSTMImpl::flat_weights() const {
   return flat;
 }
 
-torch::nn::RNNOutput PackedLSTMImpl::forward(const torch::Tensor& input,
-                                             const at::Tensor& lengths,
-                                             torch::Tensor state) {
+std::tuple<torch::Tensor, torch::Tensor> PackedLSTMImpl::forward(
+    const torch::Tensor& input, const at::Tensor& lengths,
+    torch::Tensor state) {
   if (!state.defined()) {
     // 2 for hidden state and cell state, then #layers, batch size, state size
     // const auto batch_size = input.size(rnn_->options.batch_first_ ? 0 : 1);
@@ -50,14 +50,10 @@ const torch::nn::LSTMOptions& PackedLSTMImpl::options() const {
   return rnn_->options;
 }
 
-SentimentRNNImpl::SentimentRNNImpl(int64_t vocab_size,
-                                   int64_t embedding_dim,
-                                   int64_t hidden_dim,
-                                   int64_t output_dim,
-                                   int64_t n_layers,
-                                   bool bidirectional,
-                                   double dropout,
-                                   int64_t pad_idx)
+SentimentRNNImpl::SentimentRNNImpl(int64_t vocab_size, int64_t embedding_dim,
+                                   int64_t hidden_dim, int64_t output_dim,
+                                   int64_t n_layers, bool bidirectional,
+                                   double dropout, int64_t pad_idx)
     : pad_idx_(pad_idx) {
   embeddings_weights_ = register_parameter(
       "embeddings_weights", torch::empty({vocab_size, embedding_dim}));

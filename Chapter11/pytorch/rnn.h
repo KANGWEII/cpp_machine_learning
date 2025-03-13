@@ -9,9 +9,12 @@ class PackedLSTMImpl : public torch::nn::Module {
 
   std::vector<torch::Tensor> flat_weights() const;
 
-  torch::nn::RNNOutput forward(const torch::Tensor& input,
-                               const torch::Tensor& lengths,
-                               torch::Tensor state = {});
+  // torch::nn::RNNOutput forward(const torch::Tensor& input,
+  //                              const torch::Tensor& lengths,
+  //                              torch::Tensor state = {});
+
+  std::tuple<torch::Tensor, torch::Tensor> forward(
+      const torch::Tensor& input, torch::Tensor state = torch::Tensor());
 
   const torch::nn::LSTMOptions& options() const;
 
@@ -23,14 +26,9 @@ TORCH_MODULE(PackedLSTM);
 
 class SentimentRNNImpl : public torch::nn::Module {
  public:
-  SentimentRNNImpl(int64_t vocab_size,
-                   int64_t embedding_dim,
-                   int64_t hidden_dim,
-                   int64_t output_dim,
-                   int64_t n_layers,
-                   bool bidirectional,
-                   double dropout,
-                   int64_t pad_idx);
+  SentimentRNNImpl(int64_t vocab_size, int64_t embedding_dim,
+                   int64_t hidden_dim, int64_t output_dim, int64_t n_layers,
+                   bool bidirectional, double dropout, int64_t pad_idx);
 
   void SetPretrainedEmbeddings(const torch::Tensor& weights);
 
