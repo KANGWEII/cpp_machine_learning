@@ -91,7 +91,7 @@ void TrainModel(
     // Compute a loss value to estimate error of our model
     // target should have size of [batch_size]
     torch::Tensor loss = torch::binary_cross_entropy_with_logits(
-        prediction, labels, {}, {}, Reduction::Mean);
+        prediction, labels, {}, {}, torch::Reduction::Mean);
 
     // Compute gradients of the loss and parameters of our model
     loss.backward();
@@ -144,7 +144,7 @@ void TestModel(
     // Compute a loss value to estimate error of our model
     // target should have size of [batch_size]
     torch::Tensor loss = torch::binary_cross_entropy_with_logits(
-        prediction, labels, {}, {}, Reduction::Mean);
+        prediction, labels, {}, {}, torch::Reduction::Mean);
 
     auto loss_value = static_cast<double>(loss.item<float>());
     auto acc_value = static_cast<double>(BinaryAccuracy(prediction, labels));
