@@ -1,0 +1,84 @@
+name: default
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    strategy:
+      max-parallel: 5
+      matrix:
+        container: [ubuntu-24.04]
+    runs-on: ${{matrix.container}}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install apt-get dependencies
+        run: |
+            sudo apt-get update
+            sudo apt-get install -y build-essential \
+                cmake \
+                cmake-curses-gui \
+                gdb \
+                git \
+                g++ \
+                gnuplot \
+                libarmadillo-dev \
+                libblas-dev \
+                libopenblas-dev \
+                libatlas-base-dev \
+                liblapack-dev \
+                libboost-all-dev \
+                libopencv-core-dev \
+                libopencv-imgproc-dev \
+                libopencv-dev \
+                libopencv-highgui-dev \
+                libhdf5-dev \
+                libjson-c-dev \
+                libx11-dev \
+                libensmallen-dev \
+                libcereal-dev \
+                libstb-dev \
+                libgif-dev \
+                ninja-build \
+                openjdk-8-jdk \
+                python3 \
+                python3-venv \
+                vim \
+                wget
+      - name: Make scripts executable
+        run: |
+            for script in env_scripts/*.sh build_scripts/*.sh; do
+                if [ -f "$script" ]; then
+                    chmod +x "$script" || { echo "Failed to make $script executable"; exit 1; }
+                else
+                    echo "Script $script not found"
+                    exit 1
+                fi
+            done
+      - name: Install required tools
+        run: |
+            cd env_scripts
+            ./install_env.sh
+      - name: Build Examples
+        run: |
+            cd build_scripts
+            ./build_ch01.sh
+            ./build_ch02.sh
+            ./build_ch03.sh
+            ./build_ch04.sh
+            ./build_ch05.sh
+            ./build_ch06.sh
+            ./build_ch07.sh
+            ./build_ch08.sh
+            ./build_ch10.sh
+            ./build_ch12.sh
